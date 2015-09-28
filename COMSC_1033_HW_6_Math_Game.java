@@ -1,0 +1,48 @@
+/** @author Michael Dobrinski
+ * COMSC 1033 Section 1411
+ * Instructor: Dr. Evert
+ * 27 September 2015
+ */
+
+/** Homework number 6
+ *
+ * Let us make a math game. The user will be asked a simple math problem in
+ * the first round. For example, to add two single digit numbers. If the user
+ * gets this correct, they will be given points and asked a more difficult
+ * math problem in round 2, such as adding a pair of two digit numbers.
+ * They will receive more points and be asked more difficult questions in the
+ * following round for every correct answer. Every incorrect answer will be
+ * followed by a more simple question. There should be a total of 4 rounds.
+ * At the end of 4 rounds, the code should print the final score.
+ */
+
+import java.util.Scanner;
+
+public class COMSC_1033_HW_6_Math_Game {
+
+	public static void main(String[] args) {
+		int minNum = 0, maxNum = 0;
+		int i = 0, score=0;
+
+		Scanner input = new Scanner(System.in);
+		System.out.print("\nPlease enter your first name: ");
+		String playerName = input.nextLine();
+
+		System.out.print("\n\n************************************************" +
+		"*************************************\n");
+		System.out.printf("Welcome %s! The rules for the game are:", playerName);
+
+
+
+
+
+	} // ************** End of MAIN method ****************************
+
+	public static int randomNumber(int mn, int mx){
+		int result=0;
+
+		result = ((mx - mn + 1) * (int)(Math.random()*100000)) / 100000 + mn;
+		return result;
+	}
+
+} // **************** End of COMSC_1033_HW_6_Math_Game class ********
