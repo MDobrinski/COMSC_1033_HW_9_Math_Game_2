@@ -23,6 +23,7 @@ public class COMSC_1033_HW_6_Math_Game {
 	public static void main(String[] args) {
 		int minNum = 0, maxNum = 0, level=1;
 		int i = 0, score=0;
+		boolean gameOver = false;
 
 		Scanner input = new Scanner(System.in);
 		System.out.print("\nPlease enter your first name: ");
@@ -51,12 +52,12 @@ public class COMSC_1033_HW_6_Math_Game {
 
 
 
-
+		input.close();
 	} // ************** End of MAIN method ****************************
 
 	/**
 	 * Generate a random number between mn (minimum) and mx (maximum) inclusive.
-	 * Inputs: two integers
+	 * Inputs: int minimum boundary, int maximum boundary
 	 * Output: random integer between mn and mx inclusive.
 	 */
 	public static int randomNumber(int mn, int mx){
@@ -64,7 +65,19 @@ public class COMSC_1033_HW_6_Math_Game {
 
 		result = ((mx - mn + 1) * (int)(Math.random()*100000)) / 100000 + mn;
 		return result;
-	}
+	}	// End of randomNumber.
+
+	/**
+	 * Method to print header information at the start of each round.
+	 * Inputs: int score, int round, int level, string player's name
+	 * Output: void
+	 */
+	public static void printRoundHeader(int s, int r, int lvl, String player){
+		System.out.printf("\n\n*************************************************"
+			+ "\n******************** Round %d ********************\n\n",r);
+		System.out.printf("\n%s your score is %d and you are at a dificulty"
+			+ " level of %d.\n\n", player, s, lvl);
+	} // End of printRoundHeader.
 
 
 
