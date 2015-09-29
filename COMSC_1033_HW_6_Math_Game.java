@@ -30,8 +30,12 @@ public class COMSC_1033_HW_6_Math_Game {
 
 		System.out.print("\n\n************************************************" +
 		"*************************************\n");
-		System.out.printf("Welcome %s! The rules for the game are:", playerName);
-
+		System.out.printf("Welcome %s! The rules for the game are:\n", playerName);
+		System.out.printf("The game consists of four rounds of addition problems"+
+		" randomly generated. Each time the \nproblem is answered correctly"+
+		" you will receive 5 points and the difficulty level\nwill increase. "+
+		"If the problem is answered incorrectly you will lose 5 points and "+
+		"the\ndifficulty level will be reduced.");
 
 
 
