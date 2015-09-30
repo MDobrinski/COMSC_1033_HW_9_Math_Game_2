@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 public class COMSC_1033_HW_6_Math_Game {
 	public static int score=0;
-	public static int level=1;
+	public static int level=1, numCorrect=0, numIncorrect=0;
 	public static Scanner inputAnswer = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -62,6 +62,7 @@ public class COMSC_1033_HW_6_Math_Game {
 					num2 =  randomNumber(100, 999);
 					roundResult(num1, num2, playerName, round);
 					break;
+
 				case 4:
 					num1 =  randomNumber(1000, 9999);
 					num2 =  randomNumber(1000, 9999);
@@ -72,6 +73,12 @@ public class COMSC_1033_HW_6_Math_Game {
 			}	// End of switch.
 		} // End of for loop.
 
+		System.out.printf("\n\n***************************************************"
+				+ "****************\n************************** Final Results ********"
+				+ "******************\n");
+		System.out.printf("%s your final score is %d points and you answered %4.1f"
+			+ "%% of the questions correctly.", playerName, score,
+			(double)numCorrect /(numCorrect+numIncorrect)*100.0);
 
 
 
@@ -97,11 +104,13 @@ public class COMSC_1033_HW_6_Math_Game {
 		if (playerAnswer == correctAnswer){
 			score += 5;
 			level += 1;
+			numCorrect++;
 			System.out.print("CORRECT");
 		}
 		else{
 			score -= 5;
 			level -= 1;
+			numIncorrect++;
 			System.out.print("INCORRECT");
 		}
 	} // End of roundResult
