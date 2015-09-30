@@ -77,7 +77,7 @@ public class COMSC_1033_HW_6_Math_Game {
 				+ "****************\n************************** Final Results ********"
 				+ "******************\n");
 		System.out.printf("%s your final score is %d points and you answered %4.1f"
-			+ "%% of the questions correctly.", playerName, score,
+			+ "%% of\nthe questions correctly.", playerName, score,
 			(double)numCorrect /(numCorrect+numIncorrect)*100.0);
 
 
