@@ -1,4 +1,4 @@
-/** @author Michael Dobrinski
+/** @author Michael Dobrinski - michael.git2015@gmail.com
  * COMSC 1033 Section 1411
  * Instructor: Dr. Evert
  * 27 September 2015
