@@ -39,8 +39,6 @@ public class COMSC_1033_HW_6_Math_Game {
 		"If the problem is answered incorrectly you will lose 5 points and "+
 		"the\ndifficulty level will be reduced.");
 
-
-
 		for(int round=1; round<=4; round++){
 			level = (level<1)? 1: level;	// Make sure level does not go below 1.
 
@@ -79,8 +77,6 @@ public class COMSC_1033_HW_6_Math_Game {
 		System.out.printf("%s your final score is %d points and you answered %4.1f"
 			+ "%% of\nthe questions correctly.", playerName, score,
 			(double)numCorrect /(numCorrect+numIncorrect)*100.0);
-
-
 
 		input.close();
 		inputAnswer.close();
@@ -139,6 +135,7 @@ public class COMSC_1033_HW_6_Math_Game {
 		System.out.printf("\n%s your score is %d and you are at a dificulty"
 			+ " level of %d.\n", player, s, lvl);
 	} // End of printRoundHeader.
+
 	/**
 	 * Method to prompt the player for the answer and then return that answer.
 	 * Inputs: none
@@ -148,7 +145,5 @@ public class COMSC_1033_HW_6_Math_Game {
 		int result = inputAnswer.nextInt();
 		return result;
 	}
-
-
 
 } // **************** End of COMSC_1033_HW_6_Math_Game class ********
