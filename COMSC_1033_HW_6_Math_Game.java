@@ -137,12 +137,18 @@ public class COMSC_1033_HW_6_Math_Game {
 	} // End of printRoundHeader.
 
 	/**
-	 * Method to prompt the player for the answer and then return that answer.
+	 * Method to get the answer from the player and then return that answer.
 	 * Inputs: none
 	 * Output: integer
 	 */
 	public static int getAnswer(){
-		int result = inputAnswer.nextInt();
+		int result = 0;
+	try {
+		result = inputAnswer.nextInt();
+	} catch (Exception ex) {
+		// TODO Auto-generated catch block
+		ex.printStackTrace();
+	}
 		return result;
 	}
 
