@@ -16,7 +16,9 @@
  * At the end of 4 rounds, the code should print the final score.
  */
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class COMSC_1033_HW_6_Math_Game {
 	public static int score=0;
@@ -91,13 +93,26 @@ public class COMSC_1033_HW_6_Math_Game {
 
 	private static void roundResult(int num1, int num2, String playerName,
 			int round) {
-		int playerAnswer;
+		int playerAnswer = 0;
 		int correctAnswer;
+		boolean error = false;
 		printRoundHeader(score, round, level, playerName);
 		correctAnswer = num1 + num2;
-		System.out.printf("Answer the problem: %d + %d = ", num1, num2);
-		playerAnswer = getAnswer();
-		if (playerAnswer == correctAnswer){
+
+		do {
+			System.out.printf("Answer the problem: %d + %d = ", num1, num2);
+			try {
+				playerAnswer = inputAnswer.nextInt();
+				error = false;
+			} catch (InputMismatchException ex) {
+				error = true;
+				System.out.print("\nERROR on input. Try again with integer numbers "
+					+ "only.\n");
+				inputAnswer.nextLine(); // Flush the input buffer.
+			}
+
+		} while (error);
+	if (playerAnswer == correctAnswer){
 			score += 5;
 			level += 1;
 			numCorrect++;
@@ -136,20 +151,5 @@ public class COMSC_1033_HW_6_Math_Game {
 			+ " level of %d.\n", player, s, lvl);
 	} // End of printRoundHeader.
 
-	/**
-	 * Method to get the answer from the player and then return that answer.
-	 * Inputs: none
-	 * Output: integer
-	 */
-	public static int getAnswer(){
-		int result = 0;
-	try {
-		result = inputAnswer.nextInt();
-	} catch (Exception ex) {
-		// TODO Auto-generated catch block
-		ex.printStackTrace();
-	}
-		return result;
-	}
 
 } // **************** End of COMSC_1033_HW_6_Math_Game class ********
