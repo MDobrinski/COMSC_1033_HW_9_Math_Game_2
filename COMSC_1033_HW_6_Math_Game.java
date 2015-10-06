@@ -96,7 +96,7 @@ public class COMSC_1033_HW_6_Math_Game {
 		printRoundHeader(score, round, level, playerName);
 		correctAnswer = num1 + num2;
 		System.out.printf("Answer the problem: %d + %d = ", num1, num2);
-		playerAnswer = getAnswer();
+		playerAnswer = inputAnswer.nextInt(); // Moved this from its own method.
 		if (playerAnswer == correctAnswer){
 			score += 5;
 			level += 1;
@@ -136,14 +136,5 @@ public class COMSC_1033_HW_6_Math_Game {
 			+ " level of %d.\n", player, s, lvl);
 	} // End of printRoundHeader.
 
-	/**
-	 * Method to prompt the player for the answer and then return that answer.
-	 * Inputs: none
-	 * Output: integer
-	 */
-	public static int getAnswer(){
-		int result = inputAnswer.nextInt();
-		return result;
-	}
 
 } // **************** End of COMSC_1033_HW_6_Math_Game class ********
