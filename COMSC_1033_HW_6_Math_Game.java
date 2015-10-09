@@ -22,17 +22,19 @@ public class COMSC_1033_HW_6_Math_Game {
 	public static int score=0;
 	public static int level=1, numCorrect=0, numIncorrect=0;
 	public static Scanner inputAnswer = new Scanner(System.in);
-
+	public static Player player_1 = new Player();
 	public static void main(String[] args) {
 		int num1 = 0, num2 = 0;
 
 		Scanner input = new Scanner(System.in);
 		System.out.print("\nPlease enter your first name: ");
 		String playerName = input.nextLine();
+		player_1.setName(playerName);
 
 		System.out.print("\n\n************************************************" +
 		"*************************************\n");
-		System.out.printf("Welcome %s! The rules for the game are:\n", playerName);
+		System.out.printf("Welcome %s! The rules for the game are:\n",
+				player_1.getName());
 		System.out.printf("The game consists of four rounds of addition problems"+
 		" randomly generated. Each time the \nproblem is answered correctly"+
 		" you will receive 5 points and the difficulty level\nwill increase. "+
@@ -40,31 +42,32 @@ public class COMSC_1033_HW_6_Math_Game {
 		"the\ndifficulty level will be reduced.");
 
 		for(int round=1; round<=4; round++){
-			level = (level<1)? 1: level;	// Make sure level does not go below 1.
+			// Make sure level does not go below 1.
+			player_1.setLevel( (player_1.getLevel()<1)? 1: player_1.getLevel());
 
-			switch (level){
+			switch (player_1.getLevel()){
 				case 1:
 					num1 =  randomNumber(0, 9);
 					num2 =  randomNumber(0, 9);
-					roundResult(num1, num2, playerName, round);
+					roundResult(num1, num2, round);
 					break;
 
 				case 2:
 					num1 =  randomNumber(10, 99);
 					num2 =  randomNumber(10, 99);
-					roundResult(num1, num2, playerName, round);
+					roundResult(num1, num2, round);
 					break;
 
 				case 3:
 					num1 =  randomNumber(100, 999);
 					num2 =  randomNumber(100, 999);
-					roundResult(num1, num2, playerName, round);
+					roundResult(num1, num2, round);
 					break;
 
 				case 4:
 					num1 =  randomNumber(1000, 9999);
 					num2 =  randomNumber(1000, 9999);
-					roundResult(num1, num2, playerName, round);
+					roundResult(num1, num2, round);
 					break;
 				default:
 
@@ -75,7 +78,7 @@ public class COMSC_1033_HW_6_Math_Game {
 				+ "****************\n************************** Final Results ********"
 				+ "******************\n");
 		System.out.printf("%s your final score is %d points and you answered %4.1f"
-			+ "%% of\nthe questions correctly.", playerName, score,
+			+ "%% of\nthe questions correctly.", player_1.getName(), score,
 			(double)numCorrect /(numCorrect+numIncorrect)*100.0);
 
 		input.close();
@@ -89,11 +92,10 @@ public class COMSC_1033_HW_6_Math_Game {
  * score and level.
  */
 
-	private static void roundResult(int num1, int num2, String playerName,
-			int round) {
+	private static void roundResult(int num1, int num2,	int round) {
 		int playerAnswer;
 		int correctAnswer;
-		printRoundHeader(score, round, level, playerName);
+		printRoundHeader(score, round, level);
 		correctAnswer = num1 + num2;
 		System.out.printf("Answer the problem: %d + %d = ", num1, num2);
 		playerAnswer = inputAnswer.nextInt(); // Moved this from its own method.
@@ -128,12 +130,12 @@ public class COMSC_1033_HW_6_Math_Game {
 	 * Inputs: int score, int round, int level, string player's name
 	 * Output: void
 	 */
-	public static void printRoundHeader(int s, int r, int lvl, String player){
+	public static void printRoundHeader(int s, int r, int lvl){
 		System.out.printf("\n\n***************************************************"
 			+ "****************\n***************************** Round %d *************"
 			+ "****************\n",r);
 		System.out.printf("\n%s your score is %d and you are at a dificulty"
-			+ " level of %d.\n", player, s, lvl);
+			+ " level of %d.\n", player_1.getName(), s, lvl);
 	} // End of printRoundHeader.
 
 
