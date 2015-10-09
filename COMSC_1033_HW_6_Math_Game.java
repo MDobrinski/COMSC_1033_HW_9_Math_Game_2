@@ -134,7 +134,7 @@ public class COMSC_1033_HW_6_Math_Game {
 		System.out.printf("\n\n***************************************************"
 			+ "****************\n***************************** Round %d *************"
 			+ "****************\n",r);
-		System.out.printf("\n%s your score is %d and you are at a dificulty"
+		System.out.printf("\n%s your score is %d and you are at a difficulty"
 			+ " level of %d.\n", player_1.getName(), s, lvl);
 	} // End of printRoundHeader.
 
