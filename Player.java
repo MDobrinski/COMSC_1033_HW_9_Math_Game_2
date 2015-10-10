@@ -4,7 +4,32 @@ public class Player {
 	private int level=0;
 	private int score=0;
 	private int numOfPlayers=0;
+	private int rightAnswers=0;
+	private int wrongAnswers=0;
 
+	public int getRightAnswers() {
+		return rightAnswers;
+	}
+
+	public void setRightAnswers(int rightAnswers) {
+		this.rightAnswers = rightAnswers;
+	}
+
+	public void adjustRightAnswers(int changeToRA){
+		rightAnswers += changeToRA;
+	}
+
+	public int getWrongAnswers() {
+		return wrongAnswers;
+	}
+
+	public void setWrongAnswers(int wrongAnswers) {
+		this.wrongAnswers = wrongAnswers;
+	}
+
+	public void adjustWrongAnswers(int changeToRA){
+		wrongAnswers += changeToRA;
+	}
 
 	public String getName() {	// Return the player's name
 		return name;
