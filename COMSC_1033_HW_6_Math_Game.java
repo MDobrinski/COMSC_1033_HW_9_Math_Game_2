@@ -20,15 +20,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class COMSC_1033_HW_6_Math_Game {
-	public static int numCorrect=0, numIncorrect=0;
 	public static Scanner inputAnswer = new Scanner(System.in);
-	public static Player player_1 = new Player();
+	public static Player player_1 = new Player(); // Create player object
 
 
 	public static void main(String[] args) {
 		int num1 = 0, num2 = 0;
 		player_1.setLevel(1); // Initialize level
 		player_1.setScore(0);	// Initialize score
+		player_1.setRightAnswers(0); // Initialize the number of correct answers
+		player_1.setWrongAnswers(0); // Initialize the number of wrong answers
+
 		Scanner input = new Scanner(System.in);
 		System.out.print("\nPlease enter your first name: ");
 		String playerName = input.nextLine();
@@ -82,7 +84,8 @@ public class COMSC_1033_HW_6_Math_Game {
 				+ "******************\n");
 		System.out.printf("%s your final score is %d points and you answered %4.1f"
 			+ "%% of\nthe questions correctly.", player_1.getName(),
-			player_1.getScore(), (double)numCorrect /(numCorrect+numIncorrect)*100.0);
+			player_1.getScore(),
+			(double)player_1.getRightAnswers() /player_1.getTotalAnswers()*100.0);
 
 		input.close();
 		inputAnswer.close();
@@ -91,15 +94,15 @@ public class COMSC_1033_HW_6_Math_Game {
 /**
  * Method to calculate the result of the round of addition.
  * Inputs: the two numbers for the problem, the player name, and round number
- * Output: The method does not return a value but modifies the global variables
- * score and level.
+ * Output: The method does not return a value but modifies the global Player
+ * object - score and level.
  */
 
 	private static void roundResult(int num1, int num2,	int round) {
 		int playerAnswer=0;
 		int correctAnswer;
 		boolean error = false;
-		printRoundHeader(player_1.getScore(), round, player_1.getLevel());
+		printRoundHeader(round);
 		correctAnswer = num1 + num2;
 
 		do {
@@ -119,13 +122,13 @@ public class COMSC_1033_HW_6_Math_Game {
 	if (playerAnswer == correctAnswer){
 			player_1.adjustScore(5);
 			player_1.adjustLevel(1);
-			numCorrect++;
+			player_1.adjustRightAnswers(1);
 			System.out.print("CORRECT");
 		}
 		else{
 			player_1.adjustScore(-5);
 			player_1.adjustLevel(-1);
-			numIncorrect++;
+			player_1.adjustWrongAnswers(1);
 			System.out.print("INCORRECT");
 		}
 	} // End of roundResult
@@ -147,7 +150,7 @@ public class COMSC_1033_HW_6_Math_Game {
 	 * Inputs: int score, int round, int level, string player's name
 	 * Output: void
 	 */
-	public static void printRoundHeader(int s, int r, int lvl){
+	public static void printRoundHeader(int r){
 		System.out.printf("\n\n***************************************************"
 			+ "****************\n***************************** Round %d *************"
 			+ "****************\n",r);

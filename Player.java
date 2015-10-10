@@ -7,6 +7,10 @@ public class Player {
 	private int rightAnswers=0;
 	private int wrongAnswers=0;
 
+	public int getTotalAnswers() {
+		return rightAnswers + wrongAnswers;
+	}
+
 	public int getRightAnswers() {
 		return rightAnswers;
 	}
