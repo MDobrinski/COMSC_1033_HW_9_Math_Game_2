@@ -27,8 +27,8 @@ public class Player {
 		this.wrongAnswers = wrongAnswers;
 	}
 
-	public void adjustWrongAnswers(int changeToRA){
-		wrongAnswers += changeToRA;
+	public void adjustWrongAnswers(int changeToWA){
+		wrongAnswers += changeToWA;
 	}
 
 	public String getName() {	// Return the player's name
