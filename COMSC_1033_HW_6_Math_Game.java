@@ -16,16 +16,19 @@
  * At the end of 4 rounds, the code should print the final score.
  */
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class COMSC_1033_HW_6_Math_Game {
-	public static int score=0;
-	public static int level=1, numCorrect=0, numIncorrect=0;
+	public static int numCorrect=0, numIncorrect=0;
 	public static Scanner inputAnswer = new Scanner(System.in);
 	public static Player player_1 = new Player();
+
+
 	public static void main(String[] args) {
 		int num1 = 0, num2 = 0;
-
+		player_1.setLevel(1); // Initialize level
+		player_1.setScore(0);	// Initialize score
 		Scanner input = new Scanner(System.in);
 		System.out.print("\nPlease enter your first name: ");
 		String playerName = input.nextLine();
@@ -78,8 +81,8 @@ public class COMSC_1033_HW_6_Math_Game {
 				+ "****************\n************************** Final Results ********"
 				+ "******************\n");
 		System.out.printf("%s your final score is %d points and you answered %4.1f"
-			+ "%% of\nthe questions correctly.", player_1.getName(), score,
-			(double)numCorrect /(numCorrect+numIncorrect)*100.0);
+			+ "%% of\nthe questions correctly.", player_1.getName(),
+			player_1.getScore(), (double)numCorrect /(numCorrect+numIncorrect)*100.0);
 
 		input.close();
 		inputAnswer.close();
@@ -93,21 +96,35 @@ public class COMSC_1033_HW_6_Math_Game {
  */
 
 	private static void roundResult(int num1, int num2,	int round) {
-		int playerAnswer;
+		int playerAnswer=0;
 		int correctAnswer;
-		printRoundHeader(score, round, level);
+		boolean error = false;
+		printRoundHeader(player_1.getScore(), round, player_1.getLevel());
 		correctAnswer = num1 + num2;
-		System.out.printf("Answer the problem: %d + %d = ", num1, num2);
-		playerAnswer = inputAnswer.nextInt(); // Moved this from its own method.
-		if (playerAnswer == correctAnswer){
-			score += 5;
-			level += 1;
+
+		do {
+			System.out.printf("Answer the problem: %d + %d = ", num1, num2);
+
+		try {
+			playerAnswer = inputAnswer.nextInt(); // Moved this from its own method.
+			error = false;
+		} catch (InputMismatchException ex){
+			error = true;
+			System.out.print("\nERROR on input: Try again with integer numbers"
+				+ " only.\n");
+			inputAnswer.nextLine(); // Flush the input buffer.
+		}
+
+	} while (error);
+	if (playerAnswer == correctAnswer){
+			player_1.adjustScore(5);
+			player_1.adjustLevel(1);
 			numCorrect++;
 			System.out.print("CORRECT");
 		}
 		else{
-			score -= 5;
-			level -= 1;
+			player_1.adjustScore(-5);
+			player_1.adjustLevel(-1);
 			numIncorrect++;
 			System.out.print("INCORRECT");
 		}
@@ -135,7 +152,8 @@ public class COMSC_1033_HW_6_Math_Game {
 			+ "****************\n***************************** Round %d *************"
 			+ "****************\n",r);
 		System.out.printf("\n%s your score is %d and you are at a dificulty"
-			+ " level of %d.\n", player_1.getName(), s, lvl);
+			+ " level of %d.\n", player_1.getName(), player_1.getScore(),
+			player_1.getLevel());
 	} // End of printRoundHeader.
 
 
