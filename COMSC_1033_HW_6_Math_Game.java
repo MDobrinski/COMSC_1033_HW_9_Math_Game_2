@@ -52,26 +52,26 @@ public class COMSC_1033_HW_6_Math_Game {
 
 			switch (player_1.getLevel()){
 				case 1:
-					num1 =  randomNumber(0, 9);
-					num2 =  randomNumber(0, 9);
+					num1 =  MyRandoms.get1DigRandom();
+					num2 =  MyRandoms.get1DigRandom();
 					roundResult(num1, num2, round);
 					break;
 
 				case 2:
-					num1 =  randomNumber(10, 99);
-					num2 =  randomNumber(10, 99);
+					num1 =  MyRandoms.get2DigRandom();
+					num2 =  MyRandoms.get2DigRandom();
 					roundResult(num1, num2, round);
 					break;
 
 				case 3:
-					num1 =  randomNumber(100, 999);
-					num2 =  randomNumber(100, 999);
+					num1 =  MyRandoms.get3DigRandom();
+					num2 =  MyRandoms.get3DigRandom();
 					roundResult(num1, num2, round);
 					break;
 
 				case 4:
-					num1 =  randomNumber(1000, 9999);
-					num2 =  randomNumber(1000, 9999);
+					num1 =  MyRandoms.get4DigRandom();
+					num2 =  MyRandoms.get4DigRandom();
 					roundResult(num1, num2, round);
 					break;
 				default:

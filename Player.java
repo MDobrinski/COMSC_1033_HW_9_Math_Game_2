@@ -3,7 +3,7 @@ public class Player {
 	private String name;
 	private int level=0;
 	private int score=0;
-	private int numOfPlayers=0;
+	private static int numOfPlayers=0;
 	private int rightAnswers=0;
 	private int wrongAnswers=0;
 
@@ -67,7 +67,7 @@ public class Player {
 		score += scoreChange;
 	}
 
-	public int getNumOfPlayers(){	// Return the number of player's in the game
+	public static int getNumOfPlayers(){	// Get the number of player instances
 		return numOfPlayers;
 	}
 
