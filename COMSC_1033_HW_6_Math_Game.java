@@ -133,17 +133,6 @@ public class COMSC_1033_HW_6_Math_Game {
 		}
 	} // End of roundResult
 
-	/**
-	 * Generate a random number between mn (minimum) and mx (maximum) inclusive.
-	 * Inputs: int minimum boundary, int maximum boundary
-	 * Output: random integer between mn and mx inclusive.
-	 */
-	public static int randomNumber(int mn, int mx){
-		int result=0;
-
-		result = ((mx - mn + 1) * (int)(Math.random()*100000)) / 100000 + mn;
-		return result;
-	}	// End of randomNumber.
 
 	/**
 	 * Method to print header information at the start of each round.
