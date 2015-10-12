@@ -79,6 +79,7 @@ public class COMSC_1033_HW_6_Math_Game {
 			}	// End of switch.
 		} // End of for loop.
 
+// Print out the final results of the game.
 		System.out.printf("\n\n***************************************************"
 				+ "****************\n************************** Final Results ********"
 				+ "******************\n");
@@ -87,9 +88,9 @@ public class COMSC_1033_HW_6_Math_Game {
 			player_1.getScore(),
 			(double)player_1.getRightAnswers() /player_1.getTotalAnswers()*100.0);
 
-		input.close();
+		input.close();				// Close our inputs
 		inputAnswer.close();
-	} // ************** End of MAIN method ****************************
+	} // ******************** End of MAIN method ****************************
 
 /**
  * Method to calculate the result of the round of addition.
@@ -133,7 +134,6 @@ public class COMSC_1033_HW_6_Math_Game {
 		}
 	} // End of roundResult
 
-
 	/**
 	 * Method to print header information at the start of each round.
 	 * Inputs: int score, int round, int level, string player's name
@@ -148,6 +148,5 @@ public class COMSC_1033_HW_6_Math_Game {
 			+ " level of %d.\n", player_1.getName(), player_1.getScore(),
 			player_1.getLevel());
 	} // End of printRoundHeader.
-
 
 } // **************** End of COMSC_1033_HW_6_Math_Game class ********

@@ -1,4 +1,4 @@
-/**
+/************************** Player.java ********************************
  * Player class is used to create Player objects.
  * There are two constructors for this class:
  * Player() - creates the object with no values
@@ -91,6 +91,4 @@ public class Player {
 	this.name = name;
 	numOfPlayers++;
 	}
-
-
-}
+} // *********** End of Player class ******************

@@ -1,4 +1,12 @@
-
+/***************************** MyRandoms.java****************************
+ * The MyRandoms class has 4 methods that can be called to generate random
+ * numbers using the Math.random method provided by Java.
+ * Each method will generate a random number with the specified number of
+ * digits. get1DigRandom gives a single digit random integer number between
+ * 0 and 9 inclusive, that is (0<= number <=9).
+ * get2DigRandom gives a two digit random integer number between
+ * 10 and 99 inclusive, that is (10<= number <=99).
+ */
 public class MyRandoms {
 
 	/**
@@ -6,27 +14,23 @@ public class MyRandoms {
 	 * Inputs: int minimum boundary, int maximum boundary
 	 * Output: random integer between mn and mx inclusive.
 	 */
-	private static int randomNumber(int mn, int mx){
-		int result=0;
-
-		result = ((mx - mn + 1) * (int)(Math.random()*100000)) / 100000 + mn;
-		return result;
-	}	// End of randomNumber.
-
+	public static int randomNumber(int mn, int mx){
+		return ((mx - mn + 1) * (int)(Math.random()*100000)) / 100000 + mn;
+	}
+// Return a random integer between 0 and 9 inclusive. 0<= random <=9
 	public static int get1DigRandom (){
-		return  randomNumber(0, 9);
+		return  (10 * (int)(Math.random()*100000)) / 100000;
 	}
-
+//Return a random integer between 10 and 99 inclusive. 10<= random <=99
 	public static int get2DigRandom (){
-		return  randomNumber(10, 99);
+		return  (90 * (int)(Math.random()*100000)) / 100000 + 10;
 	}
-
+//Return a random integer between 100 and 999 inclusive. 100<= random <=999
 	public static int get3DigRandom (){
-		return  randomNumber(100, 999);
+		return  (900 * (int)(Math.random()*100000)) / 100000 + 100;
 	}
-
+//Return a random integer between 1000 and 9999 inclusive. 1000<= random <=9999
 	public static int get4DigRandom (){
-		return  randomNumber(1000, 9999);
+		return  (9000 * (int)(Math.random()*100000)) / 100000 + 1000;
 	}
-
-}
+} // ************** End of MyRandoms class ********************
