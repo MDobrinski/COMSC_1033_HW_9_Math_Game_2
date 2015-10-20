@@ -15,6 +15,12 @@ public class MyRandoms {
 	 * Output: random integer between mn and mx inclusive.
 	 */
 	public static int randomNumber(int mn, int mx){
+		int temp;
+		if  (mn>mx){
+			temp=mn;
+			mn=mx;
+			mx=temp;
+		}
 		return ((mx - mn + 1) * (int)(Math.random()*100000)) / 100000 + mn;
 	}
 // Return a random integer between 0 and 9 inclusive. 0<= random <=9
