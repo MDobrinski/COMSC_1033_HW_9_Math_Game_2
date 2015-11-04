@@ -382,11 +382,14 @@ the questions correctly.
 The Git-SCM software was used to track the source code during the development of the programming project and GitHub was used as the remote repository server for the project. The program was first written with all of the methods for the program contained in a single class. During the writing of the program Git was used to track progress and incremental commits were used so that if it was needed the program could be reverted to an earlier state to correct problems. Once the program was working, a branch off of the master was created to track development while error checking was added to the program. The project contains a total of four branches in Git, they are: master, errorTrap, patch-1, and development. A feature for the program would be developed on a branch off of the master and once it was working that branch would be merged back into the master. During a couple of the merges conflicts arose between the source code in the two branches being merged. Once these conflicts were resolved the merge was completed and development continued. Using GitHub allowed the project to be reviewed by other programmers during the development process and their input was used to correct any errors. One such error was pointed out by instructor Jonathan Irvin who pointed out the need to correct a spelling mistake. He created a couple of pull requests, one to help with a merge conflict in the code and one for the spelling error.
 
 After the program was working correctly it was decided to move some of the functionality out of the single class and into separate classes with the development of the Player and MyRandoms classes. The writing of these classes was done on the development branch which was merged into the master branch as the use of the classes became functional in the program. Pictures of the project statistics and development graph from GitHub are shown below.
- pic1.jpg
- pic2.jpg
+
+ !(https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic1.jpg)
+ 
+ !(https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic2.jpg)
  
 A screenshot of the gitk command is shown below. This gives a history of the project to date.
-pic3.jpg
+
+!(https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic3.jpg)
  
 The current release for this programming project at the time this report is being written is v3.1.0 and a link to the project is included at the beginning of the report.
 
