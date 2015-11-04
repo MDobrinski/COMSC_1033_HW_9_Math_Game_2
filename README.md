@@ -7,15 +7,19 @@ difficulty if they were answered incorrectly. The development of the project was
 
 ## Summary
 Homework assignment 6 was to write a math game program that generated random addition problems. The player’s progress is tracked and as they answer the problems correctly through the four rounds of the game the level of difficulty is increased. If the answer to the problem is wrong then the level of difficulty is reduced. The player is awarded 5 points for each correct answer and they lose 5 points for each incorrect answer. The assignment also required the use of the Git-SCM software to track development. The program was first written as a single file and then later in the development the single file was broken into three files.
+
 The nature of the program problem made the use of separate class files reasonable so a Player class was written to contain player information and provide methods to access and use that information. A class was also written to provide methods generating random numbers. This will allow for easy access to this code for use in future programs should the need arise.
+
 The Git-SCM was used to track the project during development and it proved to be a valuable tool helping with tracking the development over various branches and then with the integration of the branches into one complete program. GitHub was also used giving access to the project during the development to interested persons who could make comments and suggestions as well as code corrections.
 
 
 
 
 # Homework Assignment Number 6
-This homework assignment is to write a program and use the Git-SCM to track program development. The programing problem is to create a math game that will generate at least four rounds of addition problems. The player will receive points for each correct answer and they will lose points for incorrect answers. Each time the player answers correctly the difficulty of the problems will be increased and if they answer incorrectly the difficulty of the problems will be decreased. The code for the program solution is below in three code sections, one for each of the java files. Following the code sections is some sample output for the program. The programming solution is also available on GitHub at https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame/releases. The release used for the homework assignment is v3.1.0.
-The program consists of three classes, COMSC_1033_HW_6_Math_Game.java, Player.java, and MyRandoms.java. The file COMSC_1033_HW_6_Math_Game.java contains the main method as well as two other methods. The Player.java file contains the methods needed to create Player objects used in the main program and the MyRandoms.java file contains methods used to generate various random numbers. 
+This homework assignment is to write a program and use the Git-SCM to track program development. The programing problem is to create a math game that will generate at least four rounds of addition problems. The player will receive points for each correct answer and they will lose points for incorrect answers. Each time the player answers correctly the difficulty of the problems will be increased and if they answer incorrectly the difficulty of the problems will be decreased. The code for the program solution is below in three code sections, one for each of the java files. Following the code sections is some sample output for the program. The programming solution is also available on GitHub at (https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame/releases). The release used for the homework assignment is v3.1.0.
+
+The program consists of three classes, COMSC_1033_HW_6_Math_Game.java, Player.java, and MyRandoms.java. The file COMSC_1033_HW_6_Math_Game.java contains the main method as well as two other methods. The Player.java file contains the methods needed to create Player objects used in the main program and the MyRandoms.java file contains methods used to generate various random numbers.
+
 ## CODE – COMSC_1033_HW_6_Math_Game.java
 ```java
 /** @author Michael Dobrinski - michael.git2015@gmail.com
@@ -173,11 +177,17 @@ public class COMSC_1033_HW_6_Math_Game {
 ```
 
 The COMSC_1033_HW_6_Math_Game.java file consists of three methods, main, roundResult, and printRoundHeader. The program instantiates the Player object player_1 and the Scanner object inputAnswer outside of the main method giving both objects scope throughout the class. Inside the main method several of the player_1 attributes are initialized and another Scanner object, input, is created. The main method then prompts the user for their first name using the Scanner object input to get the string using nextLine. After the player name is read the program displays a welcome message and explains the rules of the game. Following this the game starts.
+
 A FOR loop makes up the body of the game and is used to control the number of rounds. Inside the FOR loop is a SWITCH construct that contains four CASEs. The difficulty level, level variable, is used as the control for the SWICH so that based on the level variable, the appropriate CASE is executed. Inside each CASE two random numbers are obtained with CASE 1 getting one digit integers, CASE 2 getting two digit integers and so on. After the random integers for that round are found then the roundResults method is called. The inputs for the roundResults method are the two random integers and the round number.
+
 Inside the roundResult method the printRoundHeader method is used to display the status of the game showing the player name, score, and level. After execution returns from the printRoundHeader method the correct answer is calculated and the program enters a DO – WHILE loop. Inside the DO – WHILE loop the addition problem is displayed and the player is prompted for the answer. The prompt for the answer is contained in a TRY block followed by a CATCH block to handle any InputMismatchExceptions should the player enter anything other than an integer for their answer. 
+
 If there is an InputMismatchException the CATCH block displays an error message, clears the inputAnswer object stream, and sets the Boolean variable error to true causing the DO – WHILE loop to execute again. If the player enters a valid number for the answer then the variable error is set to false and the program exits the DO – WHILE loop.
+
 Once program execution exits the DO – WHILE loop the player’s answer to the problem is compared to the correct answer, calculated earlier in the method, in an IF – ELSE construct. If the player answer is equal to the correct answer then the player score is adjusted by a positive 5 points, the level is adjusted by a positive 1, the number of right answers is increased by 1, the message “CORRECT” is displayed, and program execution returns to the CASE from which the roundResult method was called. The program breaks out of the SWITCH and the next iteration of the FOR loop is executed as long as the variable round is less than or equal to four.
+
 If the player answer does not equal the correct answer then the player score is adjusted by a negative 5 points, the level is adjusted by a negative 1, the number of wrong answers is increased by 1, the message “INCORRECT” is displayed, and program execution returns to the CASE from which the roundResult method was called. The program breaks out of the SWITCH – CASE and the next iteration of the FOR loop is executed as long as the variable round is less than or equal to four. Once the variable round exceeds 4 the FOR loop exits and the final results are displayed showing the player score and the percentage of problems that were answered correctly. Then the Scanner objects inputAnswer and input are closed. Below is the code for the other two classes in the project.
+
 ## CODE – Player.java
 ```java
 /************************** Player.java ********************************
@@ -318,8 +328,11 @@ public class MyRandoms {
 ```
 
 The program required the generation of random numbers containing a varying number digits based on the difficulty level of the round in the game so the following formula was used to get the numbers: ((max - min + 1) * (int)(Math.random()*100000)) / 100000 + min. The Java Math.random method returns a double value that is greater than or equal to 0.0 and less than 1.0. Using that value the formula above will generate an integer value that is greater than or equal to min and less than or equal to max. The random number generation is contained in a class separate from the main class.
+
 The MyRandoms class is used to provide various random integers to the calling program. There are five methods in the class get1DigRandom, get2DigRandom, get3DigRandom, get4DigRandom, and randomNumber. The 1, 2, 3, or 4 in the getXDigRandom methods indicate the number of digits in the random integer the method returns. As an example, the get3DigRandom method returns a three digit integer between 100 and 999 inclusive. The randomNumber method accepts two integer inputs and returns a random integer between the two inputs inclusive. Each of the methods in the MyRandoms class use the Math.random method that is included in the Java library. It was decided to put the random number methods in a separate class to make it easier to reuse the code in future projects. 
+
 Some sample output from the program is provided in the console section below.
+
 ## CONSOLE
 ```
 Please enter your first name: August
@@ -367,10 +380,14 @@ the questions correctly.
 ```
 
 The Git-SCM software was used to track the source code during the development of the programming project and GitHub was used as the remote repository server for the project. The program was first written with all of the methods for the program contained in a single class. During the writing of the program Git was used to track progress and incremental commits were used so that if it was needed the program could be reverted to an earlier state to correct problems. Once the program was working, a branch off of the master was created to track development while error checking was added to the program. The project contains a total of four branches in Git, they are: master, errorTrap, patch-1, and development. A feature for the program would be developed on a branch off of the master and once it was working that branch would be merged back into the master. During a couple of the merges conflicts arose between the source code in the two branches being merged. Once these conflicts were resolved the merge was completed and development continued. Using GitHub allowed the project to be reviewed by other programmers during the development process and their input was used to correct any errors. One such error was pointed out by instructor Jonathan Irvin who pointed out the need to correct a spelling mistake. He created a couple of pull requests, one to help with a merge conflict in the code and one for the spelling error.
+
 After the program was working correctly it was decided to move some of the functionality out of the single class and into separate classes with the development of the Player and MyRandoms classes. The writing of these classes was done on the development branch which was merged into the master branch as the use of the classes became functional in the program. Pictures of the project statistics and development graph from GitHub are shown below.
- 
+ pic1.jpg
+ pic2.jpg
  
 A screenshot of the gitk command is shown below. This gives a history of the project to date.
+pic3.jpg
  
 The current release for this programming project at the time this report is being written is v3.1.0 and a link to the project is included at the beginning of the report.
+
 This programming problem has given the opportunity to use a number of program control constructs including the SWITCH – CASE construct, DO – WHILE loop, FOR loop, and IF – ELSE construct. The Math.random method provided in the Java utilities was also used. This project was such that object and method classes could be written and used effectively, allowing for their use in future programs. Numerical input from the user is contained in a TRY block and any InputMismatchExceptions will be handled in the CATCH block. The Git-SCM system was a valuable tool used during the writing of this programming project as well as GitHub for a central repository server.
