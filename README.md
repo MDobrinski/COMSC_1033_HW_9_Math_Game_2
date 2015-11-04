@@ -385,11 +385,11 @@ After the program was working correctly it was decided to move some of the funct
 
  <img src="pic1.jpg"/>
  
- <img src="https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic2.jpg"/>
+ <img src="pic2.jpg"/>
  
 A screenshot of the gitk command is shown below. This gives a history of the project to date.
 
-<img src="https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic3.jpg"/>
+<img src="pic3.jpg"/>
  
 The current release for this programming project at the time this report is being written is v3.1.0 and a link to the project is included at the beginning of the report.
 
