@@ -383,7 +383,7 @@ The Git-SCM software was used to track the source code during the development of
 
 After the program was working correctly it was decided to move some of the functionality out of the single class and into separate classes with the development of the Player and MyRandoms classes. The writing of these classes was done on the development branch which was merged into the master branch as the use of the classes became functional in the program. Pictures of the project statistics and development graph from GitHub are shown below.
 
- <img src="https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic1.jpg"/>
+ <img src="pic1.jpg"/>
  
  <img src="https://github.com/MDobrinski/COMSC_1033_HW_6_MathGame.git/pic2.jpg"/>
  
