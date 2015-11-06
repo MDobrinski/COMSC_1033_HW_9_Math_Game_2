@@ -4,7 +4,7 @@
  * 27 September 2015
  */
 
-/** Homework number 6
+/** Homework number 9
  *
  * Let us make a math game. The user will be asked a simple math problem in
  * the first round. For example, to add two single digit numbers. If the user
@@ -19,9 +19,10 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class COMSC_1033_HW_6_Math_Game {
+public class COMSC_1033_HW_9_Math_Game_2 {
 	public static Scanner inputAnswer = new Scanner(System.in);
 	public static Player player_1 = new Player(); // Create player object
+	public static char mathOperator = '+';
 
 
 	public static void main(String[] args) {
