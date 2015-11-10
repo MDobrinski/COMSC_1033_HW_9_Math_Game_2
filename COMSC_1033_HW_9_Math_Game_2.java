@@ -41,12 +41,14 @@ public class COMSC_1033_HW_9_Math_Game_2 {
 		"*************************************\n");
 		System.out.printf("Welcome %s! The rules for the game are:\n",
 				player_1.getName());
-		System.out.printf("The game consists of four rounds of addition problems"+
-		" randomly generated. Each time the \nproblem is answered correctly"+
-		" you will receive 5 points and the difficulty level\nwill increase. "+
-		"If the problem is answered incorrectly you will lose 5 points and "+
-		"the\ndifficulty level will be reduced.");
-/*
+		System.out.printf("The game consists of four rounds each of addition, " +
+		"subtraction, multiplication, \nand division problems randomly generated."+
+		" Each time the problem is answered \ncorrectly you will receive 5 points"+
+		" and the difficulty level will increase. "+
+		"If \nthe problem is answered incorrectly you will lose 5 points and "+
+		"the difficulty \nlevel will be reduced. On the division problems you must"
+		+ " get the answer within 0.001\n to be considered correct.");
+
 // Start the four rounds of math problems for the operators +, - , X, and /.
 		// Addition round
 		mathOperator = '+';
@@ -60,7 +62,7 @@ public class COMSC_1033_HW_9_Math_Game_2 {
 		mathOperator = 'X';
 		player_1.setLevel(1); // Initialize level to one for multiplication rounds
 		RoundControl();
-*/
+
 		// Division round
 		mathOperator = '/';
 		player_1.setLevel(1); // Initialize level to one for the division rounds
@@ -98,6 +100,7 @@ public class COMSC_1033_HW_9_Math_Game_2 {
 					num1 =  MyRandoms.get1DigRandom();
 					num2 =  MyRandoms.get1DigRandom();
 					if (mathOperator == '/'){
+						num2 = (num2 == 0)? 2 : num2;
 						doubleRoundResult(num1, num2, round);
 					}
 					else{
@@ -213,8 +216,7 @@ public class COMSC_1033_HW_9_Math_Game_2 {
 			correctAnswer = (double)num1 / (double)num2;
 
 			do {
-				System.out.printf("Answer the problem: %d / %d = ", (double)num1,
-						(double)num2);
+				System.out.printf("Answer the problem: %d / %d = ", num1, num2);
 
 			try {
 				playerAnswer = inputDivAnswer.nextDouble();
@@ -252,8 +254,26 @@ public class COMSC_1033_HW_9_Math_Game_2 {
 	 */
 	public static void printRoundHeader(int r){
 		System.out.printf("\n\n***************************************************"
-			+ "****************\n***************************** Round %d *************"
-			+ "****************\n",r);
+			+ "****************\n");
+		switch(mathOperator){ // Get the correct answer based on the math operator
+		case '+':
+			System.out.printf("*********************** Addition Round %d ********"
+					+ "******************\n",r);
+			break;
+		case '-':
+			System.out.printf("********************** Subtraction Round %d ******"
+					+ "******************\n",r);
+			break;
+		case 'X':
+			System.out.printf("********************* Multiplication Round %d ****"
+					+ "******************\n",r);
+			break;
+		case '/':
+			System.out.printf("*********************** Division Round %d ********"
+					+ "******************\n",r);
+			break;
+		}
+
 
 		System.out.printf("\n%s your score is %d and you are at a difficulty"
 			+ " level of %d.\n", player_1.getName(), player_1.getScore(),
