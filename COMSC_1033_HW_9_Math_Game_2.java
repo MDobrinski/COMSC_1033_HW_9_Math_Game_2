@@ -1,7 +1,7 @@
 /** @author Michael Dobrinski - michael.git2015@gmail.com
  * COMSC 1033 Section 1411
  * Instructor: Dr. Evert
- * 27 September 2015
+ * 04 November 2015
  */
 
 /** Homework number 9
@@ -12,8 +12,9 @@
  * math problem in round 2, such as adding a pair of two digit numbers.
  * They will receive more points and be asked more difficult questions in the
  * following round for every correct answer. Every incorrect answer will be
- * followed by a more simple question. There should be a total of 4 rounds.
- * At the end of 4 rounds, the code should print the final score.
+ * followed by a more simple question. There should be a total of 4 rounds for
+ * each of the four math operators, addition, subtraction, multiplication, and
+ * division. At the end of 16 rounds, the code should print the final score.
  */
 
 import java.util.InputMismatchException;
@@ -280,4 +281,4 @@ public class COMSC_1033_HW_9_Math_Game_2 {
 			player_1.getLevel());
 	} // End of printRoundHeader.
 
-} // **************** End of COMSC_1033_HW_6_Math_Game class ********
+} // **************** End of COMSC_1033_HW_9_Math_Game_2 class ********
